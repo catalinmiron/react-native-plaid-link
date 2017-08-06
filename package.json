@@ -1,0 +1,33 @@
+{
+  "name": "react-native-plaid-autheticator",
+  "version": "1.0.0",
+  "description": "React Native Plaid Webview authenticator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catalinmiron/react-native-plaid-authenticator.git"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "plaid",
+    "authenticator",
+    "webview",
+    "ios",
+    "android",
+    "login",
+    "react-component"
+  ],
+  "author": "Catalin Miron",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/catalinmiron/react-native-plaid-authenticator/issues"
+  },
+  "homepage": "https://github.com/catalinmiron/react-native-plaid-authenticator#readme",
+  "peerDependencies": {
+    "react-native": ">= 0.20.0"
+  }
+}
