@@ -1,5 +1,5 @@
 {
-  "name": "react-native-plaid-autheticator",
+  "name": "react-native-plaid-authenticator",
   "version": "1.0.0",
   "description": "React Native Plaid Webview authenticator",
   "main": "index.js",

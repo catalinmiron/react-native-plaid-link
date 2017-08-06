@@ -18,7 +18,7 @@ export default class App extends Component {
     return (
       <PlaidAuthenticator
         onMessage={this.onMessage}
-        publicKey="YOUR_PLAID_PUBLIC_KEY"
+        publicKey="eecc6d6382543dbee6478afbc5879b"
         env="sandbox"
         product="auth,transactions"
       />
