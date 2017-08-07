@@ -1,6 +1,6 @@
-### React Native Plaid Authenticator
+### React Native Plaid Link auth
 
-![react_native_plaid_authenticator](https://user-images.githubusercontent.com/2805320/29003828-ad4ab974-7ac6-11e7-90f9-e7b637b58de1.gif)
+![react_native_plaid_link_auth](https://user-images.githubusercontent.com/2805320/29003828-ad4ab974-7ac6-11e7-90f9-e7b637b58de1.gif)
 
 Since [Plaid.com](https://plaid.com/) doesn't have support for React Native and a lot o devs [asked](https://github.com/plaid/link/issues/153) for an implementation, I've built this lib that adds support for [Plaid](https://plaid.com/) authentication using a [Webview](https://plaid.com/docs/quickstart/#webview-integration) and [Plaid Link](https://blog.plaid.com/announcing-a-new-mobile-experience-for-link/)
 
