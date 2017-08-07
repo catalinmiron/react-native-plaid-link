@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import PlaidAuthenticator from 'react-native-plaid-authenticator';
+import PlaidAuthenticator from 'react-native-plaid-link';
 
 export default class App extends Component {
   state = {

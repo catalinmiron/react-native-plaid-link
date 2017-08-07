@@ -7,7 +7,7 @@ Since [Plaid.com](https://plaid.com/) doesn't have support for React Native and 
 
 ### Usage
 
-`yarn add react-native-plaid-authenticator`
+`yarn add react-native-plaid-link`
 
 #### API
 
