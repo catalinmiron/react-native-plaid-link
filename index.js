@@ -1,5 +1,6 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import { WebView } from 'react-native';
+import { PropTypes } from 'prop-types';
 
 class PlaidAuthenticator extends Component {
   render() {

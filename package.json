@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/catalinmiron/react-native-plaid-link#readme",
   "peerDependencies": {
+    "prop-types": "^15.6.0",
     "react-native": ">= 0.20.0"
   }
 }
