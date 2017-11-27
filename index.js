@@ -1,22 +1,48 @@
 import React, { Component } from 'react';
 import { WebView } from 'react-native';
 import { PropTypes } from 'prop-types';
+import omit from 'object.omit';
 
 class PlaidAuthenticator extends Component {
   render() {
-    const {publicKey, selectAccount, env, product, clientName, webhook, style, token} = this.props;
+    const {
+      publicKey,
+      selectAccount,
+      env,
+      product,
+      clientName,
+      webhook,
+      style,
+      token
+    } = this.props;
 
-    let uri = `https://cdn.plaid.com/link/v2/stable/link.html?key=${publicKey}&apiVersion=v2&env=${env}&product=${product}&clientName=${clientName}&isWebView=true&isMobile=true&webhook=${webhook}&selectAccount=${selectAccount}`
-    uri = token !== undefined ? `${uri}&token=${token}` : uri
+    let uri = `https://cdn.plaid.com/link/v2/stable/link.html?key=${
+      publicKey
+    }&apiVersion=v2&env=${env}&product=${product}&clientName=${
+      clientName
+    }&isWebView=true&isMobile=true&webhook=${webhook}&selectAccount=${
+      selectAccount
+    }`;
+    uri = token !== undefined ? `${uri}&token=${token}` : uri;
 
-    return <WebView
-      style={{...style}}
-      source={{uri}}
-      onMessage={(e) => this.onMessage(e)}
-    />
+    return (
+      <WebView
+        {...omit(this.props, [
+          'publicKey',
+          'selectAccount',
+          'env',
+          'product',
+          'clientName',
+          'webhook',
+          'token'
+        ])}
+        source={{ uri }}
+        onMessage={this.onMessage}
+      />
+    );
   }
 
-  onMessage(e) {
+  onMessage = e => {
     /*
       Response example for success
 
@@ -37,8 +63,8 @@ class PlaidAuthenticator extends Component {
       }
     */
 
-    this.props.onMessage(JSON.parse(e.nativeEvent.data))
-  }
+    this.props.onMessage(JSON.parse(e.nativeEvent.data));
+  };
 }
 
 PlaidAuthenticator.defaultProps = {
@@ -47,14 +73,12 @@ PlaidAuthenticator.defaultProps = {
   env: PropTypes.string.isRequired,
   product: PropTypes.string.isRequired,
   clientName: PropTypes.string,
-  webhook: PropTypes.string,
-  style: PropTypes.object
-}
+  webhook: PropTypes.string
+};
 
 PlaidAuthenticator.defaultProps = {
   clientName: 'CatalinMiron',
-  webhook: 'http://batman.codes',
-  style: {}
+  webhook: 'http://batman.codes'
 };
 
 export default PlaidAuthenticator;

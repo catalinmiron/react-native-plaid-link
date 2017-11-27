@@ -14,6 +14,18 @@ export default class App extends Component {
       : this.renderLogin();
   }
 
+  onLoadStart = props => {
+    console.log('onLoadStart', props);
+  };
+
+  onLoad = props => {
+    console.log('onLoad', props);
+  };
+
+  onLoadEnd = props => {
+    console.log('onLoadEnd', props);
+  };
+
   renderLogin() {
     return (
       <PlaidAuthenticator
@@ -21,6 +33,9 @@ export default class App extends Component {
         publicKey="eecc6d6382543dbee6478afbc5879b"
         env="sandbox"
         product="auth,transactions"
+        onLoad={this.onLoad}
+        onLoadStart={this.onLoadStart}
+        onLoadEnd={this.onLoadEnd}
       />
     );
   }
@@ -28,25 +43,18 @@ export default class App extends Component {
   renderDetails() {
     return (
       <View style={styles.container}>
-        <Text style={styles.paragraph}>
-          Institution
-        </Text>
+        <Text style={styles.paragraph}>Institution</Text>
         <Text style={styles.value}>
           {this.state.data.metadata.institution.name}
         </Text>
-        <Text style={styles.paragraph}>
-          Institution ID
-        </Text>
+        <Text style={styles.paragraph}>Institution ID</Text>
         <Text style={styles.value}>
           {this.state.data.metadata.institution.institution_id}
         </Text>
-        <Text style={styles.paragraph}>
-          Token
-        </Text>
+        <Text style={styles.paragraph}>Token</Text>
         <Text style={styles.value}>
           {this.state.data.metadata.public_token}
         </Text>
-
       </View>
     );
   }
