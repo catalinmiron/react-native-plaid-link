@@ -30,5 +30,8 @@
   "peerDependencies": {
     "prop-types": "^15.6.0",
     "react-native": ">= 0.20.0"
+  },
+  "dependencies": {
+    "object.omit": "^3.0.0"
   }
 }
