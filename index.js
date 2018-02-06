@@ -6,6 +6,7 @@ import omit from 'object.omit';
 class PlaidAuthenticator extends Component {
   render() {
     const {
+      plaidRef,
       publicKey,
       selectAccount,
       env,
@@ -36,6 +37,7 @@ class PlaidAuthenticator extends Component {
           'webhook',
           'token'
         ])}
+        ref={plaidRef}
         source={{ uri }}
         onMessage={this.onMessage}
       />
