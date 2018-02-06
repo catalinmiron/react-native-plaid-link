@@ -77,8 +77,8 @@ PlaidAuthenticator.defaultProps = {
 };
 
 PlaidAuthenticator.defaultProps = {
-  clientName: 'CatalinMiron',
-  webhook: 'http://batman.codes'
+  clientName: '',
+  webhook: ''
 };
 
 export default PlaidAuthenticator;
