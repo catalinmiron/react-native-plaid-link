@@ -34,8 +34,10 @@ class PlaidAuthenticator extends Component {
           'product',
           'clientName',
           'webhook',
-          'token'
+          'token',
+          'ref'
         ])}
+        ref={this.props.plaidRef}
         source={{ uri }}
         onMessage={this.onMessage}
       />
@@ -45,7 +47,6 @@ class PlaidAuthenticator extends Component {
   onMessage = e => {
     /*
       Response example for success
-
       {
         "action": "plaid_link-undefined::connected",
         "metadata": {
@@ -73,12 +74,14 @@ PlaidAuthenticator.defaultProps = {
   env: PropTypes.string.isRequired,
   product: PropTypes.string.isRequired,
   clientName: PropTypes.string,
-  webhook: PropTypes.string
+  webhook: PropTypes.string,
+  plaidRef: PropTypes.func
 };
 
 PlaidAuthenticator.defaultProps = {
   clientName: '',
-  webhook: ''
+  webhook: '',
+  plaidRef: () => {}
 };
 
 export default PlaidAuthenticator;
