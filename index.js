@@ -20,10 +20,11 @@ class PlaidAuthenticator extends Component {
       publicKey
     }&apiVersion=v2&env=${env}&product=${product}&clientName=${
       clientName
-    }&isWebView=true&isMobile=true&webhook=${webhook}&selectAccount=${
+    }&isWebView=true&isMobile=true&selectAccount=${
       selectAccount
     }`;
     uri = token !== undefined ? `${uri}&token=${token}` : uri;
+    uri = webhook !== undefined ? `${uri}&webhook=${webhook}` : uri;
 
     return (
       <WebView
@@ -80,7 +81,6 @@ PlaidAuthenticator.defaultProps = {
 
 PlaidAuthenticator.defaultProps = {
   clientName: '',
-  webhook: '',
   plaidRef: () => {}
 };
 
