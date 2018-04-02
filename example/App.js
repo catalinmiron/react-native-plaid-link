@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import PlaidAuthenticator from 'react-native-plaid-link';
 
 export default class App extends Component {
   state = {
-    data: {}
+    data: {},
+    status: 'LOGIN_BUTTON'
   };
 
   render() {
-    return this.state.data.action &&
-      this.state.data.action.indexOf('::connected') !== -1
-      ? this.renderDetails()
-      : this.renderLogin();
+    console.log(this.state.status)
+
+    switch(this.state.status) {
+      case 'CONNECTED':
+        console.log('connected')
+        return this.renderDetails()
+      case 'LOGIN_BUTTON':
+      case 'EXIT':
+        return this.renderButton();
+      default:
+        return this.renderLogin();
+    }
+  }
+
+  renderButton = () => {
+    return <View style={styles.container}>
+      <TouchableOpacity onPress={() => this.setState({status: ''})}>
+        <Text style={styles.paragraph}>Login with Plaid</Text>
+      </TouchableOpacity>
+    </View>
   }
 
   onLoadStart = props => {
@@ -60,6 +77,7 @@ export default class App extends Component {
   }
 
   onMessage = data => {
+    // console.log(data)
     /*
       Response example for success
 
@@ -80,7 +98,7 @@ export default class App extends Component {
       }
     */
 
-    this.setState({ data });
+    this.setState({ data, status: data.action.substr(data.action.lastIndexOf(':') + 1).toUpperCase() });
   };
 }
 
