@@ -69,7 +69,7 @@ class PlaidAuthenticator extends Component {
   };
 }
 
-PlaidAuthenticator.defaultProps = {
+PlaidAuthenticator.propTypes = {
   publicKey: PropTypes.string.isRequired,
   onMessage: PropTypes.func.isRequired,
   env: PropTypes.string.isRequired,
