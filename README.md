@@ -22,6 +22,7 @@ implementation, I've built this lib that adds support for
 | **env** (required)                                                         | `string`   |                       |
 | **product** (required)                                                     | `string`   |                       |
 | clientName                                                                 | `string`   |                       |
+| selectAccount                                                              | `boolean`  | false                 |
 | webhook                                                                    | `string`   | `http://batman.codes` |
 | [WebView props](https://facebook.github.io/react-native/docs/webview.html) | -          | -                     |
 
@@ -33,6 +34,7 @@ render() {
     env="sandbox"
     product="auth,transactions"
     clientName="Catalin Miron"
+    selectAccount={false}
   />
 }
 
