@@ -41,6 +41,7 @@ class PlaidAuthenticator extends Component {
         ref={this.props.plaidRef}
         source={{ uri }}
         onMessage={this.onMessage}
+        useWebKit
       />
     );
   }
