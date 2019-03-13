@@ -11,7 +11,10 @@ implementation, I've built this lib that adds support for
 
 ### Usage
 
-`yarn add react-native-plaid-link`
+```
+yarn add react-native-plaid-link
+yarn link react-native-webview
+```
 
 #### API
 
@@ -24,7 +27,9 @@ implementation, I've built this lib that adds support for
 | clientName                                                                 | `string`   |                       |
 | selectAccount                                                              | `boolean`  | false                 |
 | webhook                                                                    | `string`   | `http://batman.codes` |
-| [WebView props](https://facebook.github.io/react-native/docs/webview.html) | -          | -                     |
+| [WebView props][WebViewPropsRef]                                           | -          | -                     |
+
+[WebViewPropsRef]: https://github.com/react-native-community/react-native-webview/blob/master/docs/Reference.md#props-index
 
 ```js
 render() {

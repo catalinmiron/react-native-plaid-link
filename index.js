@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { WebView } from 'react-native';
+import { WebView } from 'react-native-webview';
 import { PropTypes } from 'prop-types';
 import omit from 'object.omit';
 
