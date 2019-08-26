@@ -3,6 +3,12 @@ import { WebView } from 'react-native-webview';
 import { PropTypes } from 'prop-types';
 import omit from 'object.omit';
 
+const injectedJavaScript = `(function() {
+  window.postMessage = function(data) {
+    window.ReactNativeWebView.postMessage(data);
+  };
+})()`;
+
 class PlaidAuthenticator extends Component {
   render() {
     const {
@@ -45,6 +51,7 @@ class PlaidAuthenticator extends Component {
         source={{ uri }}
         onMessage={this.onMessage}
         useWebKit
+        injectedJavaScript={injectedJavaScript}
       />
     );
   }
