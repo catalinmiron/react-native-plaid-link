@@ -26,6 +26,7 @@ yarn link react-native-webview
 | **product** (required)                                                     | `string`   |                       |
 | clientName                                                                 | `string`   |                       |
 | selectAccount                                                              | `boolean`  | false                 |
+| token                                                                      | `string`    |                       |
 | webhook                                                                    | `string`   | `http://batman.codes` |
 | [WebView props][WebViewPropsRef]                                           | -          | -                     |
 
