@@ -12,15 +12,15 @@ const injectedJavaScript = `(function() {
 class PlaidAuthenticator extends Component {
   render() {
     const {
-      publicKey,
-      selectAccount,
+      clientName,
+      countryCodes,
       env,
       product,
-      clientName,
-      webhook,
+      publicKey,
+      selectAccount,
       style,
-      token,
-      countryCodes
+      webhook,
+      token
     } = this.props;
 
     let uri = `https://cdn.plaid.com/link/v2/stable/link.html?key=${
@@ -81,14 +81,15 @@ class PlaidAuthenticator extends Component {
 }
 
 PlaidAuthenticator.propTypes = {
-  publicKey: PropTypes.string.isRequired,
-  onMessage: PropTypes.func.isRequired,
-  env: PropTypes.string.isRequired,
-  product: PropTypes.string.isRequired,
   clientName: PropTypes.string,
-  webhook: PropTypes.string,
+  countryCodes: PropTypes.string,
+  env: PropTypes.string.isRequired,
+  onMessage: PropTypes.func.isRequired,
   plaidRef: PropTypes.func,
-  countryCodes: PropTypes.string
+  product: PropTypes.string.isRequired,
+  publicKey: PropTypes.string.isRequired,
+  token: PropTypes.string,
+  webhook: PropTypes.string,
 };
 
 PlaidAuthenticator.defaultProps = {
