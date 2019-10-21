@@ -12,15 +12,18 @@ const injectedJavaScript = `(function() {
 class PlaidAuthenticator extends Component {
   render() {
     const {
+      clientName,
+      countryCodes,
+      env,
+      plaidRef,
+      product,
       publicKey,
       selectAccount,
-      env,
-      product,
-      clientName,
-      webhook,
       style,
       token,
-      countryCodes
+      userEmail,
+      userLegalName,
+      webhook
     } = this.props;
 
     let uri = `https://cdn.plaid.com/link/v2/stable/link.html?key=${
@@ -30,24 +33,28 @@ class PlaidAuthenticator extends Component {
     }&isWebView=true&isMobile=true&selectAccount=${
       selectAccount
     }`;
-    uri = token !== undefined ? `${uri}&token=${token}` : uri;
-    uri = webhook !== undefined ? `${uri}&webhook=${webhook}` : uri;
     uri = countryCodes !== undefined ? `${uri}&countryCodes=${countryCodes}` : uri;
+    uri = token !== undefined ? `${uri}&token=${token}` : uri;
+    uri = userEmail !== undefined ? `${uri}&userEmail=${userEmail}` : uri;
+    uri = userLegalName !== undefined ? `${uri}&userLegalName=${userLegalName}` : uri;
+    uri = webhook !== undefined ? `${uri}&webhook=${webhook}` : uri;
 
     return (
       <WebView
         {...omit(this.props, [
-          'publicKey',
-          'selectAccount',
-          'env',
-          'product',
           'clientName',
           'countryCodes',
-          'webhook',
+          'env',
+          'product',
+          'publicKey',
+          'ref',
+          'selectAccount',
           'token',
-          'ref'
+          'userEmail',
+          'userLegalName',
+          'webhook'
         ])}
-        ref={this.props.plaidRef}
+        ref={plaidRef}
         source={{ uri }}
         onMessage={this.onMessage}
         useWebKit
@@ -81,14 +88,16 @@ class PlaidAuthenticator extends Component {
 }
 
 PlaidAuthenticator.propTypes = {
-  publicKey: PropTypes.string.isRequired,
-  onMessage: PropTypes.func.isRequired,
-  env: PropTypes.string.isRequired,
-  product: PropTypes.string.isRequired,
   clientName: PropTypes.string,
-  webhook: PropTypes.string,
+  countryCodes: PropTypes.string,
+  env: PropTypes.string.isRequired,
+  onMessage: PropTypes.func.isRequired,
   plaidRef: PropTypes.func,
-  countryCodes: PropTypes.string
+  product: PropTypes.string.isRequired,
+  publicKey: PropTypes.string.isRequired,
+  userEmail: PropTypes.string,
+  userLegalName: PropTypes.string,
+  webhook: PropTypes.string
 };
 
 PlaidAuthenticator.defaultProps = {
