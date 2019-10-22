@@ -15,12 +15,15 @@ class PlaidAuthenticator extends Component {
       clientName,
       countryCodes,
       env,
+      plaidRef,
       product,
       publicKey,
       selectAccount,
       style,
-      webhook,
-      token
+      token,
+      userEmail,
+      userLegalName,
+      webhook
     } = this.props;
 
     let uri = `https://cdn.plaid.com/link/v2/stable/link.html?key=${
@@ -30,24 +33,28 @@ class PlaidAuthenticator extends Component {
     }&isWebView=true&isMobile=true&selectAccount=${
       selectAccount
     }`;
-    uri = token !== undefined ? `${uri}&token=${token}` : uri;
-    uri = webhook !== undefined ? `${uri}&webhook=${webhook}` : uri;
     uri = countryCodes !== undefined ? `${uri}&countryCodes=${countryCodes}` : uri;
+    uri = token !== undefined ? `${uri}&token=${token}` : uri;
+    uri = userEmail !== undefined ? `${uri}&userEmail=${userEmail}` : uri;
+    uri = userLegalName !== undefined ? `${uri}&userLegalName=${userLegalName}` : uri;
+    uri = webhook !== undefined ? `${uri}&webhook=${webhook}` : uri;
 
     return (
       <WebView
         {...omit(this.props, [
-          'publicKey',
-          'selectAccount',
-          'env',
-          'product',
           'clientName',
           'countryCodes',
-          'webhook',
+          'env',
+          'product',
+          'publicKey',
+          'ref',
+          'selectAccount',
           'token',
-          'ref'
+          'userEmail',
+          'userLegalName',
+          'webhook'
         ])}
-        ref={this.props.plaidRef}
+        ref={plaidRef}
         source={{ uri }}
         onMessage={this.onMessage}
         useWebKit
@@ -88,8 +95,9 @@ PlaidAuthenticator.propTypes = {
   plaidRef: PropTypes.func,
   product: PropTypes.string.isRequired,
   publicKey: PropTypes.string.isRequired,
-  token: PropTypes.string,
-  webhook: PropTypes.string,
+  userEmail: PropTypes.string,
+  userLegalName: PropTypes.string,
+  webhook: PropTypes.string
 };
 
 PlaidAuthenticator.defaultProps = {
