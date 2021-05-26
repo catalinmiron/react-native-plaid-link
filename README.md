@@ -1,3 +1,7 @@
+#### ⚠️⚠️ Package no longer supported. Please use the official Plaid package: https://www.npmjs.com/package/react-native-plaid-link-sdk ⚠️⚠️
+
+---
+
 ### React Native Plaid Link auth
 
 ![react_native_plaid_link_auth](https://user-images.githubusercontent.com/2805320/29003828-ad4ab974-7ac6-11e7-90f9-e7b637b58de1.gif)
